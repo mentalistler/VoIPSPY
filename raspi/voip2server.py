@@ -24,3 +24,8 @@ def post_network(file_path):
         r = requests.post(url, files=files)
 
     print(r.text)
+
+def get_command():
+    resp = requests.get("http://localhost:5000/getcommand")
+    content = resp.content.decode("utf-8")
+    return content
